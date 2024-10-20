@@ -12,8 +12,6 @@ ex3) 0 ~ 1비율 :: const ratio = Math.floor(부분 / 전체);
 
 ex4) 백분율 :: const percentage = Math.floor((부분 / 전체) \* 100);
 
----
-
 ## 1. SECTION 01
 
 1. 현재 이미지 번호(currentImage)의 state를 만들고 총 이미지 갯수의 변수(totalImages)를 만들어 스크롤에 따라 이미지의 번호(setCurrentImage에 바뀌는 번호를 저장)를 변경하세요.
@@ -67,6 +65,10 @@ Hint. map안에서 useTransform을 사용해보세요.
 ! React Hook은 반드시 컴포넌트의 최상위 레벨에서 호출되어야 하기 때문에 에러발생
 -> 작동은 하기 때문에 시간이 남는 분들은 Web Animation API를 사용하여 바꿔보세요
 
+```bash
+
+```
+
 2. 원이 크기가 변하고 반시계방향으로 2바퀴 회전하게 하세요.
 
 - 스크롤 진행도가 0.3 ~ 0.5 일때 원의 크기가 0 ~ 100%
@@ -84,15 +86,10 @@ Hint. map안에서 useTransform을 사용해보세요.
 
 ## 4. SECTION 04
 
-1. path의 길이(pathLength)를 담을 state를 만드들어 현재 path의 길이를 getTotalLength()로 구하고 pathLengthMotionValue에 저장하세요.
+1. 스크롤에 따라 polyline이 그려지게 해보세요.
 
-- const pathLengthMotionValue = useMotionValue(0); 를 사용하여 strokeDasharray를 변경하세요.
-
-useMotionValue는 Framer Motion에서 제공하는 훅으로, 애니메이션 값이나 특정 값의 변화를 추적하고 관리가능
-일반적으로 motion.div와 같은 Framer Motion 컴포넌트에서 애니메이션이 진행되는 동안 해당 값의 현재 상태를 지속적으로 감지하고, 그 값을 바탕으로 다른 요소들에 동적으로 반영할 수 있음
-
-- polyline의 dashoffset은 스크롤에 따라 pathLength에 담은 값에서 0으로 변경하세요.
-- 스크롤 진행도가 0.3 ~ 0.4 일때 dashoffset이 pathLength ~ 0
+- 스크롤 진행도가 0.3 ~ 0.4 일때 pathLength가 0 ~ 1
+  (CSS에서 pathLength가 0이면 svg가 안보이고 1이면 보입니다.)
 
 2. 이미지의 투명도는 스크롤에 따라 0 ~ 1로 변경하세요.
 
