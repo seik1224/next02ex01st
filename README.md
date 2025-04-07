@@ -22,7 +22,7 @@ ex4) 백분율 :: const percentage = Math.floor((부분 / 전체) \* 100);
 
 Tip1. on("change", callback)는 MotionValue가 변경될 때마다 특정 작업을 수행할 수 있게 해줌
 
-```bash
+```jsx
 currentImageIndex.on("change", (latest) => {
   console.log(`스크롤 진행도: ${latest}`);
 });
@@ -32,15 +32,16 @@ currentImageIndex.on("change", (latest) => {
 
 ### 2. GSAP으로 할 경우
 
-Tip1. 스크롤트리거에는 onUpdate를 사용해보세요.
-Tip2. useGsapScrollTrigger 훅을 사용해보세요.
+Tip. 스크롤트리거에는 onUpdate를 사용해보세요.
 
-```bash
+```jsx
 ScrollTrigger.create({
   trigger: ".element", // 트리거로 지정할 요소
   onUpdate: (self) => {
-    console.log(`스크롤 진행도: ${self.progress}, 스크롤 방향: ${self.direction}`);
-  }
+    console.log(
+      `스크롤 진행도: ${self.progress}, 스크롤 방향: ${self.direction}`
+    );
+  },
 });
 ```
 
@@ -58,12 +59,10 @@ Y축으로 브라우저 밖(100%)에서 안쪽(0%)으로 올라오게 하세요.
 
 1. text를 배열로 만들어 스크롤에 따라 각 글자마다 투명도를 조절하세요.
 
-Hint. map안에서 useTransform을 사용해보세요.
-
 - 스크롤 진행도가 0.6 ~ 0.7 일때 한 글자씩 투명도가 0 ~ 1
 
-! React Hook은 반드시 컴포넌트의 최상위 레벨에서 호출되어야 하기 때문에 에러발생
--> 작동은 하기 때문에 시간이 남는 분들은 다른 방식으로 코드를 작성해주세요.
+! React Hook은 반드시 컴포넌트의 최상위 레벨에서 호출되어야 하기 때문에 useTransform은 에러가 발생함
+-> 일반적인 스크롤이벤트를 사용하여 코드를 작성해보세요.
 
 2. 원이 크기가 변하고 반시계방향으로 2바퀴 회전하게 하세요.
 
